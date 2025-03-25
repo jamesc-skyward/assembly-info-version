@@ -3,13 +3,13 @@ const os = require("os");
 
 function run()
 {
-    aip = process.env.AI_PATH || process.env.INPUT_AI_PATH;    
+    aip = "C:\\Users\\jamesc\\source\\repos\\QmlativMergeQueueTest\\Base\\Properties\\AssemblyInfo.cs"; //process.env.AI_PATH || process.env.INPUT_AI_PATH;    
     if (!fs.existsSync(aip))
         throw new Error('AssemblyInfo file not found');
 
     console.log(`AssemblyInfo Path: ${aip}`)
 
-    rgx = new RegExp('\\[assembly: AssemblyVersion\\(\\"(.*)\\"\\)\\]', 'm');
+    rgx = new RegExp('^\\[assembly: AssemblyVersion\\(\\"(.*)\\"\\)\\]', 'm');
     ver = rgx.exec(fs.readFileSync(aip, { encoding: 'utf-8' }))[1];
 
     if (!ver)
