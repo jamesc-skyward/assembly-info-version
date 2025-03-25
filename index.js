@@ -3,7 +3,7 @@ const os = require("os");
 
 function run()
 {
-    aip = "C:\\Users\\jamesc\\source\\repos\\QmlativMergeQueueTest\\Base\\Properties\\AssemblyInfo.cs"; //process.env.AI_PATH || process.env.INPUT_AI_PATH;    
+    aip = process.env.AI_PATH || process.env.INPUT_AI_PATH;    
     if (!fs.existsSync(aip))
         throw new Error('AssemblyInfo file not found');
 
